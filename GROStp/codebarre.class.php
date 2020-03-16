@@ -3,8 +3,8 @@
 
 class CodeBarre
 {
-    private $elements =  [
-        'A' => [
+
+    private  $tableau_a = [
             0 => "0001101",
             1 => "0011001",
             2 => "0010011",
@@ -15,8 +15,8 @@ class CodeBarre
             7 => "0111011",
             8 => "0110111",
             9 => "0001011"
-        ],
-        'B' => [
+    ];
+    private  $tableau_b =  [
             0 => "0100111",
             1 => "0110011",
             2 => "0011011",
@@ -27,8 +27,8 @@ class CodeBarre
             7 => "0010001",
             8 => "0001001",
             9 => "0010111"
-        ],
-        'C' => [
+    ];
+    private  $tableau_c =  [
             0 => "1110010",
             1 => "1100110",
             2 => "1101100",
@@ -39,22 +39,34 @@ class CodeBarre
             7 => "1000100",
             8 => "1001000",
             9 => "1110100"
-        ]
     ];
+
+
+
 
     private  $debut = "101";
     private  $milieu = "01010";
     private  $fin = '101';
+    private  $code;
 
-    public function __construct($debut,$milieu,$elements,$fin)
+    public function __construct($code)
     {
-        $this->elements[] = $elements;
-        $this->debut = $debut;
-        $this->milieu = $milieu;
-        $this->fin = $fin;
+        $this->code = [];
+        foreach ($code as $key => $values){
+            if ($values == ){
+                echo $values;
+            }
+        }
+
     }
 
+    public function getCode(){
+       return $this->code ;
+    }
 
-
+    public function setCode(array $code){
+        $this->code = $code;
+    }
 
 }
+

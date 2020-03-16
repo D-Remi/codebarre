@@ -48,12 +48,30 @@ $debut = "101";
 $milieu = "01010";
 $fin = '101';
 
+$element_A = "";
+$element_C = "";
 
-$code = [9,0,3,1,1,0,1,7];
+$barre = $_POST['code'];
 
-foreach ( $tableau_a as $key => $value_a){
+$code = str_split($barre);
 
-    if ($code[$key_code] == $key){
-        echo $value_a;
+    for ($i=0; $i<4; $i++){
+        $element_A .= $tableau_a[$code[$i]];
+    }
+
+     for ($j=4;$j<8;$j++){
+        $element_C .= $tableau_c[$code[$j]];
+     }
+
+$code_barre = $debut.$element_A.$milieu.$element_C.$fin ;
+$code_barre = str_split($code_barre);
+
+foreach ($code_barre as $key => $value){
+    if($value == '1'){
+        echo '<div class="noir"></div>';
+    }else{
+        echo '<div class="blanc"></div>';
     }
 }
+
+

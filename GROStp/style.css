@@ -1,12 +1,12 @@
 .noir{
-    height: 50px;
+    height: 150px;
     width: 2px;
     float: left;
     background-color: black;
 }
 
 .blanc{
-    height: 50px;
+    height: 150px;
     width: 2px;
     float: left;
     background-color: white;

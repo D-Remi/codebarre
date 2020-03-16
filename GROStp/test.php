@@ -1,6 +1,6 @@
 <?php
 
-//include_once 'codebarre.class.php';
+include_once 'index.html';
 
 //$codebarre = new CodeBarre(12345678);
 

@@ -55,13 +55,13 @@ $barre = $_POST['code'];
 
 $code = str_split($barre);
 
-    for ($i=0; $i<4; $i++){
-        $element_A .= $tableau_a[$code[$i]];
-    }
+for ($i=0; $i<4; $i++){
+    $element_A .= $tableau_a[$code[$i]];
+}
 
-     for ($j=4;$j<8;$j++){
-        $element_C .= $tableau_c[$code[$j]];
-     }
+for ($j=4;$j<8;$j++){
+   $element_C .= $tableau_c[$code[$j]];
+}
 
 $code_barre = $debut.$element_A.$milieu.$element_C.$fin ;
 $code_barre = str_split($code_barre);

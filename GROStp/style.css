@@ -2,14 +2,14 @@
     height: 50px;
     width: 2px;
     float: left;
-    color: black;
+    background-color: black;
 }
 
 .blanc{
     height: 50px;
     width: 2px;
     float: left;
-    color: white;
+    background-color: white;
 }
 
 h1{

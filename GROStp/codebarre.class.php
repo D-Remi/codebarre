@@ -44,7 +44,15 @@ class CodeBarre
 
     private  $debut = "101";
     private  $milieu = "01010";
+    private  $fin = '101';
 
+    public function __construct($debut,$milieu,$elements,$fin)
+    {
+        $this->elements[] = $elements;
+        $this->debut = $debut;
+        $this->milieu = $milieu;
+        $this->fin = $fin;
+    }
 
 
 }

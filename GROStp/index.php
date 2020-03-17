@@ -21,7 +21,9 @@
         $nb = $_POST['code'];
         $codebarre = new CodeBarre($nb);
         $codebarre ->affiche();
+        $codebarre->genere13();
     }
+
     ?>
 </body>
 </html>

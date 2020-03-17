@@ -40,6 +40,19 @@ class CodeBarre
             9 => "1110100"
     ];
 
+    private $type = [
+        0 => ['A','A','A','A','A','A'],
+        1 => ['A','A','B','A','B','B'],
+        2 => ['A','A','B','B','A','B'],
+        3 => ['A','A','B','B','B','A'],
+        4 => ['A','B','A','A','B','B'],
+        5 => ['A','B','B','A','A','B'],
+        6 => ['A','B','B','B','A','A'],
+        7 => ['A','B','A','B','A','B'],
+        8 => ['A','B','A','B','B','A'],
+        9 => ['A','B','B','A','B','A']
+    ];
+
 
     private  $debut = "101";
     private  $milieu = "01010";
@@ -47,7 +60,7 @@ class CodeBarre
     private  $code;
     private  $element_A = "";
     private  $element_C = "";
-    private  $barre = "";
+    private  $motif = "";
 
     public function __construct($code)
     {
@@ -62,7 +75,7 @@ class CodeBarre
         $this->code = $code;
     }
 
-    public function genere(){
+    public function genere8(){
 
 
         $this->code = str_split($this->code);
@@ -77,9 +90,34 @@ class CodeBarre
         }
     }
 
+    public function genere13(){
+
+        $this->code = str_split($this->code);
+
+        $this->motif = $this->type[$this->code['0']];// on recupere le motif
+
+        for ($i=1; $i<6; $i++){
+            $this->element_A .= $this->tableau_a[$this->code[$i]];
+        }
+
+        for ($j=7;$j<13;$j++){
+            $this->element_C .= $this->tableau_c[$this->code[$j]];
+        }
+    }
+
+    public function choixean(){
+        if(strlen($this->code) == 8){
+            $this->genere8();
+        }elseif(strlen($this->code) == 13){
+            $this->genere13();
+        }else{
+            die('Code Barre Incorrect');
+        }
+    }
+
     public function affiche(){
 
-        $this->genere();
+        $this->choixean();
 
         $zero_un = $this->debut.$this->element_A.$this->milieu.$this->element_C.$this->fin ;
         $zero_un = str_split($zero_un);

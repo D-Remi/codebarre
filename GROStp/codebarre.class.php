@@ -42,8 +42,6 @@ class CodeBarre
     ];
 
 
-
-
     private  $debut = "101";
     private  $milieu = "01010";
     private  $fin = '101';
@@ -51,22 +49,52 @@ class CodeBarre
 
     public function __construct($code)
     {
-        $this->code = [];
-        foreach ($code as $key => $values){
-            if ($values == ){
-                echo $values;
-            }
-        }
-
+        $this->code =$code;
     }
 
     public function getCode(){
-       return $this->code ;
+        $this->code ;
     }
 
-    public function setCode(array $code){
+    public function setCode($code){
         $this->code = $code;
     }
 
+    public function genere(){
+
+        $element_A = "";
+        $element_C = "";
+
+
+        $this->code .= str_split($this->code);
+
+        for ($i=0; $i<4; $i++){
+            $element_A .= $this->tableau_a[$this->code[$i]];
+        }
+
+        for ($j=4;$j<8;$j++){
+            $element_C .= $this->tableau_c[$this->code[$j]];
+        }
+    }
+
+    public function affiche(){
+
+        $zero_un = $this->debut.$this->element_A.$this->milieu.$this->element_C.$this->fin ;
+        $zero_un = str_split($zero_un);
+
+        foreach ($zero_un  as $key => $value){
+            if($value == '1'){
+                echo '<div class="noir"></div>';
+            }else{
+                echo '<div class="blanc"></div>';
+            }
+        }
+    }
 }
+
+
+
+
+
+
 

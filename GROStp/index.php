@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,18 @@
 </head>
 <body>
     <h1>Generateur de Code barre</h1>
-    <form action="test.php" method="post">
+    <form action="codebarre.class.php" method="post">
         <div>
             <label id="lbl_nom" for="code">Entrer votre Code barre</label><br>
             <input id="code" name="code" type="text"/>
             <input id="send" name="send" type="submit" value="envoyer"/>
         </div>
     </form>
+    <?php
+
+    include_once ("codebarre.class.php");
+    $codebarre = new CodeBarre(32546583);
+    $codebarre ->affiche();
+    ?>
 </body>
 </html>

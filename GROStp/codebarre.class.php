@@ -1,6 +1,5 @@
 <?php
 
-
 class CodeBarre
 {
 
@@ -46,6 +45,9 @@ class CodeBarre
     private  $milieu = "01010";
     private  $fin = '101';
     private  $code;
+    private  $element_A = "";
+    private  $element_C = "";
+    private  $barre = "";
 
     public function __construct($code)
     {
@@ -62,22 +64,22 @@ class CodeBarre
 
     public function genere(){
 
-        $element_A = "";
-        $element_C = "";
 
+        $this->code = str_split($this->code);
 
-        $this->code .= str_split($this->code);
 
         for ($i=0; $i<4; $i++){
-            $element_A .= $this->tableau_a[$this->code[$i]];
+            $this->element_A .= $this->tableau_a[$this->code[$i]];
         }
 
         for ($j=4;$j<8;$j++){
-            $element_C .= $this->tableau_c[$this->code[$j]];
+            $this->element_C .= $this->tableau_c[$this->code[$j]];
         }
     }
 
     public function affiche(){
+
+        $this->genere();
 
         $zero_un = $this->debut.$this->element_A.$this->milieu.$this->element_C.$this->fin ;
         $zero_un = str_split($zero_un);
